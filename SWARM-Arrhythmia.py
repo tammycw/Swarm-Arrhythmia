@@ -242,6 +242,7 @@ with torch.no_grad():
 print("Baseline performance before PSO:")
 print(f"  Train Accuracy: {baseline_train_acc:.3f}")
 print(f"  Test Accuracy:  {baseline_test_acc:.3f}")
+print_metrics("Baseline Train Metrics", y_train_t.numpy().astype(int).ravel(), baseline_train_pred.numpy().astype(int).ravel())
 print_metrics("Baseline Test Metrics", y_test_t.numpy().astype(int).ravel(), baseline_test_pred.numpy().astype(int).ravel())
 
 print("\nStarting PSO optimization on MIT-BIH ECG data...")
@@ -282,6 +283,7 @@ with torch.no_grad():
 
 print(f"Train Accuracy: {train_acc:.3f}")
 print(f"Test Accuracy:  {test_acc:.3f}")
+print_metrics("Final Train Metrics", y_train_t.numpy().astype(int).ravel(), train_pred.numpy().astype(int).ravel())
 print_metrics("Final Test Metrics", y_test_t.numpy().astype(int).ravel(), test_pred.numpy().astype(int).ravel())
 
 results_path = "model_results.xlsx"
