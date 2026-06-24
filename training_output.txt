@@ -1,0 +1,43 @@
+Loading MIT-BIH data...
+Loaded data from mitbih_data.xlsx
+Dataset shape: (12000, 180) | Normal: 11421 | Abnormal: 579
+Baseline performance before PSO:
+  Train Accuracy: 0.049
+  Test Accuracy:  0.053
+Baseline Test Metrics:
+  Accuracy: 0.053
+  Precision: 0.046
+  Recall (Sensitivity): 0.931
+  Specificity: 0.009
+  F1-score: 0.087
+  Balanced Accuracy: 0.470
+  Kappa: 1.007
+  Confusion Matrix:
+[[  20 2264]
+ [   8  108]]
+  Labels: [0=Normal, 1=Abnormal]
+
+Starting PSO optimization on MIT-BIH ECG data...
+Iter   0 | Best Loss: 0.4483
+Iter  15 | Best Loss: 0.2681
+Iter  30 | Best Loss: 0.2187
+Iter  45 | Best Loss: 0.2128
+Iter  60 | Best Loss: 0.1895
+Iter  75 | Best Loss: 0.1837
+
+Final Training Loss: 0.1837
+Train Accuracy: 0.956
+Test Accuracy:  0.955
+Final Test Metrics:
+  Accuracy: 0.955
+  Precision: 0.528
+  Recall (Sensitivity): 0.647
+  Specificity: 0.971
+  F1-score: 0.581
+  Balanced Accuracy: 0.809
+  Kappa: 1.000
+  Confusion Matrix:
+[[2217   67]
+ [  41   75]]
+  Labels: [0=Normal, 1=Abnormal]
+Saved training/testing results to model_results.xlsx
