@@ -18,6 +18,11 @@ import torch
 import torch.nn as nn
 import wfdb
 
+# Deterministic seeding for reproducible runs
+SEED = 42
+np.random.seed(SEED)
+torch.manual_seed(SEED)
+
 log_path = "training_output.txt"
 log_file = open(log_path, "w", encoding="utf-8")
 _original_print = builtins.print
@@ -31,7 +36,7 @@ def tee_print(*args, **kwargs):
 
 
 builtins.print = tee_print
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, cohen_kappa_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -56,7 +61,7 @@ def compute_classification_metrics(y_true, y_pred):
     balanced_accuracy = 0.5 * (recall + specificity)
 
     total = tp + tn + fp + fn
-    expected_true = ((tp + fn) * (tp + fp) + (tn + fp) * (tn + fn)) / total if total else 0.0
+    expected_true = ((tp + fn) * (tp + fp) + (tn + fp) * (tn + fn)) / (total * total) if total else 0.0
     kappa = (accuracy - expected_true) / (1 - expected_true) if (1 - expected_true) else 0.0
 
     return {
@@ -68,6 +73,7 @@ def compute_classification_metrics(y_true, y_pred):
         "balanced_accuracy": balanced_accuracy,
         "kappa": kappa,
         "confusion_matrix": cm,
+        "sklearn_kappa": cohen_kappa_score(y_true.astype(int).ravel(), y_pred.astype(int).ravel()),
     }
 
 
@@ -81,6 +87,7 @@ def print_metrics(label, y_true, y_pred):
     print(f"  F1-score: {metrics['f1']:.3f}")
     print(f"  Balanced Accuracy: {metrics['balanced_accuracy']:.3f}")
     print(f"  Kappa: {metrics['kappa']:.3f}")
+    print(f"  sklearn Cohen Kappa: {metrics['sklearn_kappa']:.3f}")
     print("  Confusion Matrix:")
     print(metrics['confusion_matrix'])
     print("  Labels: [0=Normal, 1=Abnormal]")

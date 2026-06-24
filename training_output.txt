@@ -2,66 +2,70 @@ Loading MIT-BIH data...
 Loaded data from mitbih_data.xlsx
 Dataset shape: (12000, 180) | Normal: 11421 | Abnormal: 579
 Baseline performance before PSO:
-  Train Accuracy: 0.337
-  Test Accuracy:  0.342
+  Train Accuracy: 0.868
+  Test Accuracy:  0.865
 Baseline Train Metrics:
-  Accuracy: 0.337
-  Precision: 0.017
-  Recall (Sensitivity): 0.218
-  Specificity: 0.343
-  F1-score: 0.031
-  Balanced Accuracy: 0.280
-  Kappa: 1.000
+  Accuracy: 0.868
+  Precision: 0.257
+  Recall (Sensitivity): 0.916
+  Specificity: 0.866
+  F1-score: 0.401
+  Balanced Accuracy: 0.891
+  Kappa: 0.352
+  sklearn Cohen Kappa: 0.352
   Confusion Matrix:
-[[3131 6006]
- [ 362  101]]
+[[7909 1228]
+ [  39  424]]
   Labels: [0=Normal, 1=Abnormal]
 Baseline Test Metrics:
-  Accuracy: 0.342
-  Precision: 0.019
-  Recall (Sensitivity): 0.250
-  Specificity: 0.346
-  F1-score: 0.035
-  Balanced Accuracy: 0.298
-  Kappa: 1.001
+  Accuracy: 0.865
+  Precision: 0.249
+  Recall (Sensitivity): 0.888
+  Specificity: 0.864
+  F1-score: 0.389
+  Balanced Accuracy: 0.876
+  Kappa: 0.339
+  sklearn Cohen Kappa: 0.339
   Confusion Matrix:
-[[ 791 1493]
- [  87   29]]
+[[1973  311]
+ [  13  103]]
   Labels: [0=Normal, 1=Abnormal]
 
 Starting PSO optimization on MIT-BIH ECG data...
-Iter   0 | Best Loss: 0.6517
-Iter  15 | Best Loss: 0.3543
-Iter  30 | Best Loss: 0.3543
-Iter  45 | Best Loss: 0.3543
-Iter  60 | Best Loss: 0.2534
-Iter  75 | Best Loss: 0.2346
+Iter   0 | Best Loss: 0.6026
+Iter  15 | Best Loss: 0.3846
+Iter  30 | Best Loss: 0.3846
+Iter  45 | Best Loss: 0.3684
+Iter  60 | Best Loss: 0.3631
+Iter  75 | Best Loss: 0.3212
 
-Final Training Loss: 0.2333
-Train Accuracy: 0.967
-Test Accuracy:  0.961
+Final Training Loss: 0.3212
+Train Accuracy: 0.938
+Test Accuracy:  0.935
 Final Train Metrics:
-  Accuracy: 0.967
-  Precision: 0.645
-  Recall (Sensitivity): 0.715
-  Specificity: 0.980
-  F1-score: 0.678
-  Balanced Accuracy: 0.847
-  Kappa: 1.000
+  Accuracy: 0.938
+  Precision: 0.399
+  Recall (Sensitivity): 0.546
+  Specificity: 0.958
+  F1-score: 0.461
+  Balanced Accuracy: 0.752
+  Kappa: 0.429
+  sklearn Cohen Kappa: 0.429
   Confusion Matrix:
-[[8955  182]
- [ 132  331]]
+[[8756  381]
+ [ 210  253]]
   Labels: [0=Normal, 1=Abnormal]
 Final Test Metrics:
-  Accuracy: 0.961
-  Precision: 0.580
-  Recall (Sensitivity): 0.690
-  Specificity: 0.975
-  F1-score: 0.630
-  Balanced Accuracy: 0.832
-  Kappa: 1.000
+  Accuracy: 0.935
+  Precision: 0.379
+  Recall (Sensitivity): 0.526
+  Specificity: 0.956
+  F1-score: 0.440
+  Balanced Accuracy: 0.741
+  Kappa: 0.407
+  sklearn Cohen Kappa: 0.407
   Confusion Matrix:
-[[2226   58]
- [  36   80]]
+[[2184  100]
+ [  55   61]]
   Labels: [0=Normal, 1=Abnormal]
 Saved training/testing results to model_results.xlsx
